@@ -13,7 +13,7 @@ body {
   background-color: pink;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  height: 300px;
+  height: 150px;
   overflow: hidden;
   width: 200px;
   transition: 200ms;
@@ -24,7 +24,7 @@ body {
 }
 
 .Card:hover {
-  background-color: rgb(172, 120, 129);
+  height: 300px;
   --shouldDisplay: inline;
 }
 
@@ -46,6 +46,14 @@ body {
 
 .Card .hiddenSection{
   display: var(--shouldDisplay);
+}
+
+.FilterControls{
+  margin: 10px;
+}
+
+.FilterControls input,label,button{
+  margin-left: 10px;
 }
 
 .TwirlyPig {

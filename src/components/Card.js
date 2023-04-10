@@ -14,6 +14,7 @@ function Card({hog}){
       <div className="description">
         <div><strong>Name:</strong> {hog.name}</div>
         <div className="hiddenSection">
+        <div><strong>Weight:</strong> {hog.weight}</div>
           <div><strong>Greased:</strong> {hog.greased ? "Yes" : "No"}</div>
           <div><strong>Specialty:</strong> {hog.specialty}</div>
           <div><strong>Highest medal achieved:</strong> {hog['highest medal achieved']}</div>
