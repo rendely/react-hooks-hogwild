@@ -9,6 +9,45 @@ body {
   text-align: center;
 }
 
+.Card {
+  background-color: pink;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 300px;
+  overflow: hidden;
+  width: 200px;
+  transition: 200ms;
+  margin: 10px;
+  text-align: left;
+  --shouldDisplay: none;
+  font-size: 0.8em;
+}
+
+.Card:hover {
+  background-color: rgb(172, 120, 129);
+  --shouldDisplay: inline;
+}
+
+.Card img{
+  background-color: white;
+  height: 100px;
+  width: 300px;
+  object-fit: cover;
+}
+
+.HogList {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.Card .description{
+  padding: 10px;
+}
+
+.Card .hiddenSection{
+  display: var(--shouldDisplay);
+}
+
 .TwirlyPig {
   transition: all 3s ease-in-out;
   display: inline;
