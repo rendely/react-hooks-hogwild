@@ -9,6 +9,15 @@ console.log('Data:',HOGS);
 
 function App() {
   const [hogs, setHogs] = useState(HOGS);
+  const [search, setSearch] = useState("");
+  const [filterGreased, setFilterGreased] = useState(false);
+
+  function onFilterGreasedChanged(bool){
+    setFilterGreased(bool);
+  }
+  function onSearchChange(keyword){
+    setSearch(keyword);
+  } 
 
   function sortName(){
     setHogs(hogs.slice().sort((a,b) =>{
@@ -25,11 +34,21 @@ function App() {
 	return (
 		<div className="App">
 			<Nav />
-      <FilterControls sortName={sortName} sortWeight={sortWeight} />
+      <FilterControls 
+      sortName={sortName} 
+      sortWeight={sortWeight} 
+      onSearchChange={onSearchChange} 
+      search={search}
+      onFilterGreasedChanged={onFilterGreasedChanged}
+      filterGreased={filterGreased}/>
       <div className="HogList">
-      {hogs.map(hog=>(
-        <Card hog={hog} key={hog.name}/>
-      ))}
+      {hogs.filter(
+          hog => hog.name.toLowerCase().match(search.toLocaleLowerCase()) || search === ""
+        ).filter(
+          hog => hog.greased === filterGreased || !filterGreased
+        ).map(
+          hog=>(<Card hog={hog} key={hog.name}/>)
+        )}
       </div>
 		</div>
 	);
